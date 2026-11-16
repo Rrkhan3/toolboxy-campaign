@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolBoxy Share & Earn | Discover Free Online Tools</title>
+  <meta name="description" content="Discover ToolBoxy free online tools. Earn NPR 500 on joining and NPR 200 for every successful referral.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Pure Vanilla JS Confetti Animation Canvas -->
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============================================================== -->
+  <!-- WELCOME POPUP MODAL (Immediate Entrance Celebration)           -->
+  <!-- ============================================================== -->
+  <div id="welcome-popup-modal" class="modal-overlay active" role="dialog" aria-modal="true" aria-labelledby="welcome-popup-title">
+    <div class="welcome-popup-card">
+      <div class="welcome-popup-header">
+        <div class="popup-logo-wrapper">
+          <img src="assets/logo.png" alt="ToolBoxy Logo" class="brand-logo popup-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+          <span class="fallback-logo" style="display: none;">⚡ ToolBoxy</span>
+        </div>
+        <button id="btn-popup-close" class="modal-close-btn" type="button" aria-label="Close welcome popup">✕</button>
+      </div>
+
+      <div class="welcome-popup-content">
+        <div class="popup-celebration-badge">✨ Community Reward Campaign ✨</div>
+        <h2 id="welcome-popup-title" class="welcome-popup-title">🎉 Welcome to Our ToolBoxy.xyz Campaign!</h2>
+        <p class="welcome-popup-desc">
+          Discover amazing free online tools, invite your friends, and participate in our reward campaign!
+        </p>
+
+        <!-- Highlights Grid inside Popup -->
+        <div class="popup-highlights-grid">
+          <div class="popup-highlight-item">
+            <span class="highlight-val">NPR 500</span>
+            <span class="highlight-lbl">Joining Bonus Reward</span>
+          </div>
+          <div class="popup-highlight-item">
+            <span class="highlight-val">NPR 200</span>
+            <span class="highlight-lbl">Per Successful Referral</span>
+          </div>
+          <div class="popup-highlight-item">
+            <span class="highlight-val">NPR 2,000</span>
+            <span class="highlight-lbl">Minimum Withdrawal</span>
+          </div>
+        </div>
+
+        <div class="welcome-popup-actions">
+          <button id="btn-popup-explore" class="btn btn-outline btn-lg" type="button">
+            Explore Campaign
+          </button>
+          <button id="btn-popup-start" class="btn btn-primary btn-lg" type="button">
+            Start Now →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================== -->
+  <!-- APP HEADER                                                     -->
+  <!-- ============================================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-wrapper">
+        <img src="assets/logo.png" alt="ToolBoxy Logo" class="brand-logo" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="fallback-logo" style="display: none;">⚡ ToolBoxy</span>
+      </div>
+      <div class="header-nav-actions">
+        <button id="header-btn-dashboard" class="btn btn-sm btn-outline header-dash-btn" type="button" style="display: none;">
+          My Dashboard 📊
+        </button>
+        <a href="https://toolboxy.xyz" target="_blank" rel="noopener noreferrer" class="header-link">
+          toolboxy.xyz ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- MAIN CONTENT SINGLE-PAGE CONTAINER                             -->
+  <!-- ============================================================== -->
+  <main class="main-container">
+
+    <!-- ============================================================== -->
+    <!-- PAGE 1: WELCOME / LANDING                                     -->
+    <!-- ============================================================== -->
+    <section id="page-welcome" class="page active">
+      <div class="hero-card">
+        <div class="pill-badge">ToolBoxy Community Campaign</div>
+        <h1 class="hero-headline">Discover ToolBoxy &amp; Share the Benefits!</h1>
+        <p class="hero-description">
+          Explore useful free online tools and invite your friends to discover ToolBoxy. Earn an instant NPR 500 welcome reward on joining plus NPR 200 for every successful referral.
+        </p>
+
+        <!-- Reward Cards Grid -->
+        <div class="reward-cards-grid">
+          <div class="reward-card highlight">
+            <span class="reward-tag">Instant Joining Reward</span>
+            <div class="reward-amount">NPR 500</div>
+            <div class="reward-condition">Earned upon joining the campaign</div>
+          </div>
+          <div class="reward-card highlight">
+            <span class="reward-tag">Referral Reward</span>
+            <div class="reward-amount">NPR 200</div>
+            <div class="reward-condition">Earned for every successful referral</div>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button id="btn-start-now" class="btn btn-primary btn-lg" type="button">
+            Start Now →
+          </button>
+          <button id="btn-reopen-welcome" class="btn btn-outline btn-lg" type="button">
+            View Campaign Overview
+          </button>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="content-card">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <h3>Take the Quiz</h3>
+            <p>Answer 5 quick, simple questions about online tools and ToolBoxy.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <h3>Join &amp; Earn NPR 500</h3>
+            <p>Register your details to claim your instant NPR 500 welcome bonus.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <h3>Get Referral Link</h3>
+            <p>Receive your personalized, unique ToolBoxy referral link.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <h3>Earn NPR 200 / Friend</h3>
+            <p>Share with friends across WhatsApp, Facebook, or Messenger.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaign Rules Section -->
+      <div class="content-card">
+        <h2 class="section-title">Campaign Rules &amp; Verification Notice</h2>
+        <ul class="rules-list">
+          <li><strong>Joining Reward:</strong> Earn NPR 500 upon completing campaign registration and quiz. Limited to one joining reward per user/browser.</li>
+          <li><strong>Referral Reward:</strong> Earn NPR 200 for every genuine, verified referral who discovers ToolBoxy through your link.</li>
+          <li><strong>Minimum Withdrawal:</strong> The minimum reward withdrawal threshold is NPR 2,000.</li>
+          <li><strong>Processing Window:</strong> 84 hours is the estimated review window, not a guaranteed payment time. All withdrawal requests are subject to manual verification and campaign budget approval.</li>
+          <li><strong>Manual Verification:</strong> This static frontend website cannot track or verify referrals automatically. All rewards are proposed/estimated figures.</li>
+          <li><strong>Fair Play:</strong> Fake clicks, bot traffic, duplicate accounts, and self-referrals will be reviewed and may be rejected.</li>
+          <li><strong>Free Access:</strong> There are no registration fees, deposit requirements, or hidden charges.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- PAGE 2: INTERACTIVE QUIZ                                       -->
+    <!-- ============================================================== -->
+    <section id="page-quiz" class="page">
+      <!-- Quiz Question View -->
+      <div id="quiz-question-box" class="content-card">
+        <div class="quiz-header">
+          <span id="quiz-progress-text" class="quiz-counter">Question 1 of 5</span>
+          <div class="progress-bar-track" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+            <div id="quiz-progress-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <h2 id="quiz-question-title" class="quiz-question">Loading question...</h2>
+
+        <div id="quiz-options-container" class="options-grid">
+          <!-- Dynamically populated options -->
+        </div>
+
+        <div class="quiz-actions">
+          <button id="btn-quiz-next" class="btn btn-primary" type="button" disabled>
+            Next Question →
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Completion View -->
+      <div id="quiz-completion-box" class="content-card text-center" style="display: none;">
+        <div class="celebration-icon">🎉</div>
+        <h2 class="section-title">Congratulations! You completed the ToolBoxy quiz.</h2>
+        <p class="section-subtitle">
+          Proceed to register and claim your <strong>NPR 500 Joining Reward</strong> and personalized referral link!
+        </p>
+        <button id="btn-quiz-continue" class="btn btn-primary btn-lg" type="button">
+          Claim NPR 500 &amp; Register →
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- PAGE 3: REGISTRATION FORM                                      -->
+    <!-- ============================================================== -->
+    <section id="page-register" class="page">
+      <div class="content-card">
+        <h2 class="section-title">Participant Registration</h2>
+        <p class="section-subtitle">
+          Please provide your details below to claim your <strong>NPR 500 Joining Reward</strong> and generate your personalized referral sharing page.
+        </p>
+
+        <form id="registration-form" novalidate>
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="input-fullname" class="form-label">Full Name <span class="required-star">*</span></label>
+            <input 
+              type="text" 
+              id="input-fullname" 
+              name="fullname" 
+              class="form-input" 
+              placeholder="e.g. Ramesh Sharma" 
+              autocomplete="name"
+              required
+            >
+            <div id="error-fullname" class="error-msg" aria-live="polite"></div>
+          </div>
+
+          <!-- Mobile Number -->
+          <div class="form-group">
+            <label for="input-mobile" class="form-label">Nepal Mobile Number <span class="required-star">*</span></label>
+            <input 
+              type="tel" 
+              id="input-mobile" 
+              name="mobile" 
+              class="form-input" 
+              placeholder="98XXXXXXXX or 97XXXXXXXX" 
+              autocomplete="tel"
+              required
+            >
+            <div id="error-mobile" class="error-msg" aria-live="polite"></div>
+          </div>
+
+          <!-- Khalti Number -->
+          <div class="form-group">
+            <label for="input-khalti" class="form-label">Khalti Wallet Number <span class="required-star">*</span></label>
+            <input 
+              type="tel" 
+              id="input-khalti" 
+              name="khalti" 
+              class="form-input" 
+              placeholder="Same as mobile or Khalti ID" 
+              required
+            >
+            <div id="error-khalti" class="error-msg" aria-live="polite"></div>
+          </div>
+
+          <!-- Privacy & Consent Checkbox -->
+          <div class="form-group">
+            <label class="checkbox-label" for="input-consent">
+              <input type="checkbox" id="input-consent" name="consent" required>
+              <span>I confirm that I am at least 18 years old and agree that my participation is subject to campaign verification rules.</span>
+            </label>
+            <div id="error-consent" class="error-msg" aria-live="polite"></div>
+          </div>
+
+          <!-- Notice Box (Above Submit Button) -->
+          <div class="notice-box">
+            <div class="notice-icon">ℹ️</div>
+            <p class="notice-text">
+              <strong>Notice:</strong> This is a frontend-only website. Your details are NOT securely stored, sent to any server, or verified. Rewards are proposed and subject to manual verification. No payment is processed here.
+            </p>
+          </div>
+
+          <button id="btn-submit-reg" class="btn btn-primary btn-block btn-lg" type="submit">
+            Claim NPR 500 &amp; Generate Sharing Link →
+          </button>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ============================================================== -->
+    <!-- PAGE 4: REFERRAL SHARING & REWARDS DASHBOARD                   -->
+    <!-- ============================================================== -->
+    <section id="page-sharing" class="page">
+      <div class="content-card">
+        
+        <!-- Welcome Join Reward Banner Notification -->
+        <div id="join-reward-banner" class="join-reward-banner" style="display: none;">
+          <div class="join-reward-icon">🎁</div>
+          <div class="join-reward-content">
+            <h4 class="join-reward-title">Congratulations! You've earned NPR 500 for joining the campaign.</h4>
+            <p class="join-reward-subtitle">Your welcome reward has been added to your displayed estimated reward balance.</p>
+          </div>
+          <span class="join-reward-badge">+NPR 500</span>
+        </div>
+
+        <div class="sharing-header">
+          <div class="pill-badge">Referral Program Active</div>
+          <h2 class="section-title">Your ToolBoxy Sharing Page Is Ready!</h2>
+          <p class="section-subtitle">
+            Earn <strong>NPR 200</strong> for every successful referral who discovers free online tools on ToolBoxy.xyz through your unique link!
+          </p>
+        </div>
+
+        <!-- Reward Summary Banner -->
+        <div class="reward-banner">
+          <div class="reward-banner-item">
+            <span class="label">Joining Bonus</span>
+            <span class="val">NPR 500 Credited</span>
+          </div>
+          <div class="reward-banner-separator"></div>
+          <div class="reward-banner-item">
+            <span class="label">Referral Reward Rate</span>
+            <span class="val">NPR 200 / Referral</span>
+          </div>
+          <div class="reward-banner-separator"></div>
+          <div class="reward-banner-item">
+            <span class="label">Withdrawal Threshold</span>
+            <span class="val">NPR 2,000</span>
+          </div>
+        </div>
+
+        <!-- Referral Link Box -->
+        <div class="link-box-container">
+          <label for="input-referral-link" class="form-label">Your Unique Referral Link:</label>
+          <div class="copy-input-group">
+            <input 
+              type="text" 
+              id="input-referral-link" 
+              class="form-input readonly-input" 
+              readonly 
+              value="https://toolboxy.xyz/?ref="
+            >
+            <button id="btn-copy-link" class="btn btn-secondary" type="button">
+              Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary Share Campaign Action & Share Buttons -->
+        <div class="share-actions-section">
+          <div class="share-cta-wrap">
+            <button id="btn-primary-share" class="btn btn-primary btn-block btn-lg btn-share-main" type="button">
+              🚀 Share Campaign (Earn NPR 200 Each)
+            </button>
+          </div>
+
+          <h3 class="share-actions-title">Or Share Directly via Social Platforms:</h3>
+          <div class="share-buttons-grid">
+            <!-- Native Web Share API (shown on supported devices) -->
+            <button id="btn-web-share" class="btn btn-share btn-native" type="button" style="display: none;">
+              📱 System Share
+            </button>
+
+            <!-- WhatsApp -->
+            <a id="btn-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-share btn-whatsapp">
+              WhatsApp
+            </a>
+
+            <!-- Facebook -->
+            <a id="btn-share-facebook" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-share btn-facebook">
+              Facebook
+            </a>
+
+            <!-- Messenger (honest fallback UI) -->
+            <button id="btn-share-messenger" class="btn btn-share btn-messenger" type="button" title="Copies link and guides to Messenger">
+              Messenger (Copy &amp; Paste)
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Milestone Tracker -->
+        <div class="progress-card">
+          <div class="progress-card-header">
+            <span class="progress-card-title">Referral Milestone Tracker</span>
+            <span id="tracker-friends-badge" class="badge-neutral">Invited Friends: 0</span>
+          </div>
+          <div class="milestones-row">
+            <div id="m-step-0" class="milestone-badge active">Joined (NPR 500)</div>
+            <div class="milestone-line"></div>
+            <div id="m-step-5" class="milestone-badge">5 Invites (NPR 1,500)</div>
+            <div class="milestone-line"></div>
+            <div id="m-step-8" class="milestone-badge">8 Invites (NPR 2,100 - Eligible)</div>
+          </div>
+          <p class="tracker-disclaimer">
+            * Note: Earn NPR 200 for each verified referral. Referral counts cannot be tracked automatically by this static website. Rewards are estimated, subject to manual verification.
+          </p>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- FEATURE: REWARDS & WITHDRAWAL DASHBOARD                        -->
+        <!-- ============================================================== -->
+        <div id="section-rewards-withdrawal" class="withdrawal-section">
+          <div class="withdrawal-header-bar">
+            <div>
+              <span class="pill-badge">Account Earnings</span>
+              <h3 class="section-title withdrawal-title">MY REWARDS &amp; WITHDRAWAL DASHBOARD</h3>
+            </div>
+            <span id="withdrawal-status-badge" class="badge-status status-not-eligible">Not Eligible</span>
+          </div>
+          <p class="withdrawal-desc">
+            Monitor your joining reward, referral earnings (NPR 200 × referrals), and withdrawal progress toward the NPR 2,000 threshold.
+          </p>
+
+          <!-- Financial Metrics Grid -->
+          <div class="reward-metrics-grid">
+            <div class="metric-card">
+              <span class="metric-label">Joining Reward</span>
+              <span id="metric-joining-reward" class="metric-val text-success">NPR 500</span>
+              <span class="metric-sub">Welcome bonus</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Successful Referrals</span>
+              <span id="metric-referral-count" class="metric-val">0</span>
+              <span class="metric-sub">Eligible invites</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Referral Earnings</span>
+              <span id="metric-referral-earnings" class="metric-val">NPR 0</span>
+              <span class="metric-sub">NPR 200 × referrals</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Total Estimated Earnings</span>
+              <span id="metric-total-earned" class="metric-val">NPR 500</span>
+              <span class="metric-sub">Joining + Referrals</span>
+            </div>
+            <div class="metric-card highlight-card">
+              <span class="metric-label">Available Balance</span>
+              <span id="metric-available-balance" class="metric-val text-primary">NPR 500</span>
+              <span class="metric-sub">Eligible to withdraw</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Min. Withdrawal</span>
+              <span class="metric-val">NPR 2,000</span>
+              <span class="metric-sub">Threshold limit</span>
+            </div>
+          </div>
+
+          <!-- Minimum Withdrawal Progress Card -->
+          <div class="withdrawal-progress-card">
+            <div class="withdrawal-progress-header">
+              <div class="progress-title-group">
+                <span class="withdrawal-progress-title">Minimum withdrawal: NPR 2,000</span>
+                <span id="withdrawal-progress-info" class="withdrawal-progress-info">
+                  Current Balance: NPR 500 | Remaining Amount to Withdraw: NPR 1,500
+                </span>
+              </div>
+              <span id="withdrawal-progress-percent" class="withdrawal-progress-percent">25%</span>
+            </div>
+            <div class="progress-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="500">
+              <div id="withdrawal-progress-fill" class="progress-bar-fill" style="width: 25%;"></div>
+            </div>
+          </div>
+
+          <!-- Withdrawal Action Area -->
+          <div class="withdrawal-action-area">
+            <button id="btn-request-withdrawal" class="btn btn-primary btn-lg btn-block" type="button" disabled>
+              REQUEST WITHDRAWAL
+            </button>
+            <p class="withdrawal-disclaimer-note">
+              Withdrawal requests are subject to manual verification and campaign approval. 84 hours is the estimated processing window, not a guaranteed payment time.
+            </p>
+          </div>
+
+          <!-- 84-Hour Processing Window Countdown Component -->
+          <div id="countdown-card" class="countdown-card" style="display: none;">
+            <div class="countdown-header">
+              <div class="countdown-title-wrap">
+                <span class="countdown-icon">⏱️</span>
+                <h4 class="countdown-title">WITHDRAWAL PROCESSING WINDOW</h4>
+              </div>
+              <span class="countdown-badge">Active Review</span>
+            </div>
+            <div id="countdown-timer-grid" class="countdown-timer-grid">
+              <div class="timer-box">
+                <span id="timer-days" class="timer-digit">03</span>
+                <span class="timer-unit">Days</span>
+              </div>
+              <span class="timer-colon">:</span>
+              <div class="timer-box">
+                <span id="timer-hours" class="timer-digit">12</span>
+                <span class="timer-unit">Hours</span>
+              </div>
+              <span class="timer-colon">:</span>
+              <div class="timer-box">
+                <span id="timer-minutes" class="timer-digit">00</span>
+                <span class="timer-unit">Minutes</span>
+              </div>
+              <span class="timer-colon">:</span>
+              <div class="timer-box">
+                <span id="timer-seconds" class="timer-digit">00</span>
+                <span class="timer-unit">Seconds</span>
+              </div>
+            </div>
+            <div id="countdown-completed-msg" class="countdown-completed-msg" style="display: none;">
+              Processing window completed. Please check your withdrawal status.
+            </div>
+            <p class="countdown-disclaimer">
+              <strong>Notice:</strong> 84 hours is the estimated processing window, not a guaranteed payment time. All withdrawal requests are subject to manual verification and campaign budget availability.
+            </p>
+          </div>
+
+          <!-- Withdrawal History Section -->
+          <div class="withdrawal-history-container">
+            <div class="history-header">
+              <h4 class="history-title">Withdrawal History</h4>
+              <span class="history-sub">Logged in local session</span>
+            </div>
+            <div id="withdrawal-history-list" class="history-list">
+              <div class="empty-history">No withdrawal requests submitted yet.</div>
+            </div>
+          </div>
+
+          <!-- Interactive Demo & Milestone Testing Controls -->
+          <div class="demo-testing-panel">
+            <div class="demo-panel-header">
+              <div class="demo-panel-title">
+                <span>🧪 Campaign Demo &amp; Milestone Controls</span>
+              </div>
+              <span class="badge-neutral">Testing Simulator</span>
+            </div>
+            <p class="demo-panel-desc">
+              Test the new reward structure (NPR 500 join + NPR 200/referral) directly in this client-side demo:
+            </p>
+            <div class="demo-buttons-grid">
+              <button id="btn-sim-add-1" class="btn btn-outline btn-sm" type="button" title="Add 1 verified referral and +NPR 200">
+                +1 Referral (+NPR 200)
+              </button>
+              <button id="btn-sim-reach-5" class="btn btn-outline btn-sm" type="button" title="Simulate 5 referrals (+NPR 1,000 = NPR 1,500 total)">
+                🎉 5 Referrals (+NPR 1,000 = NPR 1,500)
+              </button>
+              <button id="btn-sim-reach-8" class="btn btn-outline btn-sm highlight-btn" type="button" title="Simulate 8 referrals (+NPR 1,600 = NPR 2,100 -> Eligible!)">
+                🚀 8 Referrals (+NPR 1,600 = NPR 2,100 - Eligible!)
+              </button>
+              <button id="btn-sim-ff-timer" class="btn btn-outline btn-sm" type="button" title="Set countdown timer to 5 seconds remaining">
+                ⏩ Fast-Forward Timer (5s)
+              </button>
+              <button id="btn-sim-reset-rewards" class="btn btn-outline btn-sm" type="button" title="Reset all demo rewards and history">
+                ↺ Reset Demo Rewards
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honesty & Limitations Card -->
+        <div class="notice-box limitations-box">
+          <h4 class="limitations-title">⚠️ Transparency &amp; System Limitations</h4>
+          <ul class="limitations-list">
+            <li>Referral clicks and registration counts cannot be tracked or verified across users by this static website.</li>
+            <li>Browser LocalStorage is stored locally on this device only and is user-editable; it is NOT a secure database.</li>
+            <li>Khalti payments cannot be processed or approved automatically on this frontend site.</li>
+            <li>All reward figures are proposed, subject to manual campaign verification and available campaign budget.</li>
+            <li>84 hours is an estimated review window, not a guaranteed payment or transfer time.</li>
+          </ul>
+        </div>
+
+        <!-- Start Over Button -->
+        <div class="start-over-wrapper">
+          <button id="btn-start-over" class="btn btn-outline" type="button">
+            ↺ Start Over (Clear Local Data)
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- WITHDRAWAL REQUEST MODAL (Preview Form)                        -->
+  <!-- ============================================================== -->
+  <div id="withdrawal-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="w-modal-title" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="w-modal-title" class="modal-title">Request Reward Withdrawal</h3>
+        <button id="btn-close-withdrawal-modal" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="notice-box notice-warning mb-4">
+        <div class="notice-icon">ℹ️</div>
+        <p class="notice-text">
+          <strong>Withdrawal Request Preview:</strong> Since this website has no backend, this is a demonstration preview. Real payments are not processed here. Submitted requests start the 84-hour estimated processing window demonstration.
+        </p>
+      </div>
+
+      <form id="withdrawal-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="w-fullname" class="form-label">Full Name <span class="required-star">*</span></label>
+          <input 
+            type="text" 
+            id="w-fullname" 
+            class="form-input" 
+            placeholder="e.g. Ramesh Sharma" 
+            required
+          >
+          <div id="w-error-fullname" class="error-msg" aria-live="polite"></div>
+        </div>
+
+        <!-- Khalti Number -->
+        <div class="form-group">
+          <label for="w-khalti" class="form-label">Khalti Mobile Number <span class="required-star">*</span></label>
+          <input 
+            type="tel" 
+            id="w-khalti" 
+            class="form-input" 
+            placeholder="98XXXXXXXX or 97XXXXXXXX" 
+            required
+          >
+          <div id="w-error-khalti" class="error-msg" aria-live="polite"></div>
+        </div>
+
+        <!-- Withdrawal Amount -->
+        <div class="form-group">
+          <label for="w-amount" class="form-label">Withdrawal Amount (NPR) <span class="required-star">*</span></label>
+          <input 
+            type="number" 
+            id="w-amount" 
+            class="form-input" 
+            min="2000" 
+            step="100" 
+            placeholder="Min. 2000" 
+            required
+          >
+          <div class="form-helper">
+            Eligible Available Balance: <strong id="w-eligible-display">NPR 0</strong> (Minimum: NPR 2,000)
+          </div>
+          <div id="w-error-amount" class="error-msg" aria-live="polite"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="btn-cancel-withdrawal" class="btn btn-outline" type="button">
+            Cancel
+          </button>
+          <button id="btn-submit-withdrawal" class="btn btn-primary" type="submit">
+            Proceed with Request Preview →
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- CONFIRMATION MODAL (Before Submitting Withdrawal)              -->
+  <!-- ============================================================== -->
+  <div id="confirm-withdrawal-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="confirm-modal-title" class="modal-title">Confirm Withdrawal Request</h3>
+        <button id="btn-close-confirm-modal" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="confirmation-summary-box">
+        <p class="confirm-intro">Please confirm your reward withdrawal request details:</p>
+        <div class="confirm-row">
+          <span class="confirm-label">Recipient Name:</span>
+          <span id="confirm-name-val" class="confirm-val">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-label">Khalti Wallet:</span>
+          <span id="confirm-khalti-val" class="confirm-val">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-label">Withdrawal Amount:</span>
+          <span id="confirm-amount-val" class="confirm-val text-primary">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-label">Review Window:</span>
+          <span class="confirm-val">84 Hours Estimated Processing Window</span>
+        </div>
+      </div>
+
+      <p class="confirm-note">
+        * By confirming, you acknowledge that 84 hours is the estimated review window, not a guaranteed payment time, and this is a demonstration recorded in your browser session.
+      </p>
+
+      <div class="modal-actions">
+        <button id="btn-back-confirm" class="btn btn-outline" type="button">
+          ← Edit Details
+        </button>
+        <button id="btn-final-confirm-withdrawal" class="btn btn-primary" type="button">
+          Confirm &amp; Start 84h Review
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>ToolBoxy Share &amp; Earn — Community Promotion Concept.</p>
+      <p class="footer-sub">Explore tools directly at <a href="https://toolboxy.xyz" target="_blank" rel="noopener noreferrer">toolboxy.xyz</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
