@@ -1431,24 +1431,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateRewardsUI();
   showWelcomePopup();
-
-  // Register Service Worker safely (avoid duplicate registration, handle errors safely)
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.getRegistrations()
-        .then((registrations) => {
-          const alreadyRegistered = registrations.some(r => r.active && r.active.scriptURL.includes('sw.js'));
-          if (!alreadyRegistered) {
-            navigator.serviceWorker.register('/sw.js', { scope: '/' })
-              .catch((err) => {
-                console.warn('Service Worker registration skipped:', err);
-              });
-          }
-        })
-        .catch(() => {
-          navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .catch(() => {});
-        });
-    });
-  }
 });
