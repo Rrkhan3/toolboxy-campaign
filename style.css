@@ -169,14 +169,14 @@ input:focus-visible {
 }
 
 /* ============================================================== */
-/* DESKTOP SIDE ADVERTISEMENT LAYOUT WRAPPER                      */
+/* ADSTERRA RESPONSIVE ADVERTISEMENT LAYOUT                      */
 /* ============================================================== */
 .campaign-layout-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   gap: 20px;
@@ -184,44 +184,17 @@ input:focus-visible {
   flex: 1;
 }
 
-/* Side Advertisements: Hidden by default on mobile below 768px */
+/* Side Advertisements: Hidden on mobile & tablet below 1024px */
 .ad-sidebar {
   display: none;
   width: 160px;
   flex-shrink: 0;
 }
 
-/* Display sidebar ads on screens 768px and wider (Tablets, Laptops, Desktops) */
-@media (min-width: 768px) {
+/* Display 160px sidebars on desktop screens (1024px and wider) */
+@media (min-width: 1024px) {
   .ad-sidebar {
     display: block;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .campaign-layout-wrapper {
-    gap: 12px;
-    padding: 0 10px;
-  }
-  .ad-sidebar {
-    width: 120px;
-  }
-  .main-container {
-    max-width: calc(100% - 264px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .campaign-layout-wrapper {
-    gap: 24px;
-    padding: 0 16px;
-    max-width: 1366px;
-  }
-  .ad-sidebar {
-    width: 160px;
-  }
-  .main-container {
-    max-width: 780px;
   }
 }
 
@@ -232,41 +205,118 @@ input:focus-visible {
   flex-direction: column;
 }
 
-.ad-container {
-  width: 100%;
-  min-height: 600px;
+.ad-sidebar-card {
+  width: 160px;
   background: rgba(11, 16, 32, 0.45);
   border: 1px dashed rgba(59, 130, 246, 0.22);
   border-radius: var(--radius-sm);
+  padding: 8px 0;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* General Banner Placements (Top, Bottom, In-Content) */
+.ad-banner-placement {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 12px 6px;
-  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin: 18px 0 24px;
   box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
 }
 
-.ad-label {
+.ad-banner-label {
+  display: block;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-subtle);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
-.ad-slot-content {
-  flex: 1;
+.ad-banner-frame {
+  border: none;
+  overflow: hidden;
+  display: block;
+  background: transparent;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Visibility Control for Responsive Banner Sizes */
+.ad-slot-desktop {
+  display: none;
+}
+.ad-slot-tablet {
+  display: none;
+}
+.ad-slot-mobile {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .ad-slot-desktop {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .ad-slot-tablet {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-slot-mobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Content & Dashboard 300x250 Banner */
+.ad-card-300x250 {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 16px 8px;
+  margin: 24px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
   width: 100%;
 }
 
-.ad-slot-text {
-  font-size: 0.72rem;
-  color: rgba(148, 163, 184, 0.45);
-  line-height: 1.4;
+/* Native Banner Container */
+.ad-native-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 20px 14px;
+  margin: 24px 0;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#container-6b16c6e24fc4796ed4b6f4e46bab0b32 {
+  min-height: 100px;
+  width: 100%;
 }
 
 /* Main Content Container */

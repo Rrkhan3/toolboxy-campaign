@@ -1431,4 +1431,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateRewardsUI();
   showWelcomePopup();
+
+  // Purge any legacy ad-network service workers
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      registrations.forEach(reg => reg.unregister().catch(() => {}));
+    }).catch(() => {});
+  }
 });
