@@ -184,17 +184,44 @@ input:focus-visible {
   flex: 1;
 }
 
-/* Side Advertisements: Desktop Only */
+/* Side Advertisements: Hidden by default on mobile below 768px */
 .ad-sidebar {
   display: none;
   width: 160px;
   flex-shrink: 0;
 }
 
-/* Display ads on large desktop screens */
-@media (min-width: 1200px) {
+/* Display sidebar ads on screens 768px and wider (Tablets, Laptops, Desktops) */
+@media (min-width: 768px) {
   .ad-sidebar {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .campaign-layout-wrapper {
+    gap: 12px;
+    padding: 0 10px;
+  }
+  .ad-sidebar {
+    width: 120px;
+  }
+  .main-container {
+    max-width: calc(100% - 264px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .campaign-layout-wrapper {
+    gap: 24px;
+    padding: 0 16px;
+    max-width: 1366px;
+  }
+  .ad-sidebar {
+    width: 160px;
+  }
+  .main-container {
+    max-width: 780px;
   }
 }
 
@@ -203,21 +230,21 @@ input:focus-visible {
   top: 76px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.ad-placeholder-card {
-  width: 160px;
+.ad-container {
+  width: 100%;
   min-height: 600px;
-  background: rgba(11, 16, 32, 0.55);
-  border: 1px dashed rgba(59, 130, 246, 0.28);
+  background: rgba(11, 16, 32, 0.45);
+  border: 1px dashed rgba(59, 130, 246, 0.22);
   border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 12px 8px;
+  padding: 12px 6px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .ad-label {
@@ -226,16 +253,6 @@ input:focus-visible {
   letter-spacing: 0.08em;
   color: var(--text-subtle);
   margin-bottom: 8px;
-}
-
-.ad-slot-box {
-  width: 100%;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
 }
 
 .ad-slot-text {
@@ -1890,13 +1907,21 @@ input:focus-visible {
 /* RESPONSIVE MEDIA QUERIES                                       */
 /* ============================================================== */
 
-/* Tablets & Small Laptops (769px - 1199px) */
-@media (max-width: 1199px) {
+/* Mobile Screens below 768px (Hide ads completely, collapse gap) */
+@media (max-width: 767px) {
   .ad-sidebar {
     display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
   .campaign-layout-wrapper {
-    padding: 0 16px;
+    padding: 0 12px;
+    gap: 0;
+  }
+  .main-container {
+    max-width: 100%;
+    width: 100%;
   }
 }
 
