@@ -255,6 +255,14 @@ input:focus-visible {
   margin-bottom: 8px;
 }
 
+.ad-slot-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .ad-slot-text {
   font-size: 0.72rem;
   color: rgba(148, 163, 184, 0.45);
